@@ -11,5 +11,5 @@ RUN apt-get update && apt-get install -y \
 # rosdep 초기화
 RUN rosdep init || true && rosdep update
 
-WORKDIR /workspace
+WORKDIR /home/ros
 
