@@ -1,0 +1,26 @@
+version: "3.9"
+
+services:
+  ros2_humble:
+    image: ros2_humble_dev:latest  # 아까 만든 이미지 이름
+    container_name: ros2_humble
+    restart: unless-stopped
+    network_mode: "host"  # ROS2 노드가 host 네트워크를 바로 쓰게
+    environment:
+      - DISPLAY=${DISPLAY}
+      - XAUTHORITY=${XAUTHORITY}
+      - QT_X11_NO_MITSHM=1
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix  # X11 포워딩
+      - /home/bitbyte08/Echo/echo_ws:/home/ros/echo_ws  # workspace 마운트
+      - /dev:/dev  # USB 장치 접근
+    devices:
+      - "/dev/ttyUSB0:/dev/ttyUSB0"  # 필요 USB 포트 추가
+    cap_add:
+      - SYS_PTRACE
+      - SYS_ADMIN
+    security_opt:
+      - seccomp=unconfined
+    stdin_open: true
+    tty: true
+
