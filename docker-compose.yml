@@ -2,8 +2,10 @@ version: "3.9"
 
 services:
   ros2_humble:
-    image: osrf/ros:humble-desktop-full
-    container_name: ros2_humble
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ros2
     privileged: true
     environment:
       - DISPLAY=${DISPLAY}
