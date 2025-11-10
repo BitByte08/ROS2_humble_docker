@@ -1,0 +1,15 @@
+<CycloneDDS>
+  <Domain id="any">
+    <General>
+	   <NetworkInterfaceAddress>wlan0</NetworkInterfaceAddress>
+	   <MulticastReceiveNetworkInterfaceAddress>wlan0</MulticastReceiveNetworkInterfaceAddress>
+      <AllowMulticast>true</AllowMulticast>
+    </General>
+    <Discovery>
+      <Peers>
+        <Peer address="10.129.57.25"/> <!-- 서로의 IP -->
+        <Peer address="10.129.57.47"/> <!-- 예시 -->
+      </Peers>
+    </Discovery>
+  </Domain>
+</CycloneDDS>
